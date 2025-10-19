@@ -1142,25 +1142,27 @@
         />
       </svg>
       <p
-        id="text-click"
-        style="
-          display: none;
-          font-family: 'Mali', cursive;
-          color: indianred;
-          font-size: 28px;
-          top: 80%;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          text-shadow: 0 0 8px rgba(255, 182, 193, 0.7),
-            0 0 15px rgba(255, 105, 180, 0.5);
-          animation: glowText 2s ease-in-out infinite alternate;
-          cursor: pointer;
-          letter-spacing: 2px;
-        "
-      >
-        ✨ Bấm vào bông hoa ✨
-      </p>
+  id="text-click"
+  style="
+    display: none;
+    font-family: 'Mali', cursive;
+    color: indianred;
+    font-size: 22px;
+    position: absolute;
+    left: 50%;
+    bottom: 10%; /* 👈 thay top = 80% bằng bottom */
+    transform: translateX(-50%);
+    text-shadow: 0 0 8px rgba(255, 182, 193, 0.7),
+      0 0 15px rgba(255, 105, 180, 0.5);
+    animation: glowText 2s ease-in-out infinite alternate;
+    cursor: pointer;
+    letter-spacing: 2px;
+    white-space: nowrap; /* 👈 không xuống dòng */
+  "
+>
+  ✨ Bấm vào bông hoa ✨
+</p>
+
     </div>
 
     <div class="wrapperLetterForm" style="display: none">
@@ -1402,7 +1404,7 @@
       let indexTextContent = 0;
       let textLetterContent = document.querySelector(".contentLetter");
       const textLetterP =
-        "Hôm nay là ngày 20/10 em chúc chị một ngày thật hạnh phúc và gặp nhiều may mắn trong cuộc sống nhá. Hãy luôn giữ mãi nụ cười trên môi nhá và đừng suy nghĩ nhiều về những thứ không đáng nha. Phải yêu thương bản thân mình nhiều hơn. Cảm ơn vì đã xem.";
+        "Hôm nay là ngày 20/10 em chúc chị một ngày thật hạnh phúc và gặp nhiều may mắn trong cuộc sống nhá. Hãy luôn giữ mãi nụ cười trên môi nhá và đừng suy nghĩ nhiều về những thứ không đáng nha. Phải yêu thương bản thân mình nhiều hơn. Cảm ơn chị vì đã xem.";
       let timoutTextLetterContent;
       function textCharLetterContent() {
         if (indexTextContent < textLetterP.length) {
@@ -1609,9 +1611,7 @@
       letter.addEventListener("click", (e) => {
         createHeartExplosion(e.clientX, e.clientY);
         letter.classList.add("letter-clicked");
-        setTimeout(() => {
-          showPopup();
-        }, 300);
+        showPopup();
       });
 
       document.body.appendChild(letter);
